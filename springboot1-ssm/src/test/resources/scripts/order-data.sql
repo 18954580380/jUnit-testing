@@ -1,0 +1,2 @@
+INSERT INTO ssm_order VALUES (1, 'O-001','2018-08-01', 1, 100.54);
+INSERT INTO ssm_order VALUES (2, '0-002','2018-08-03 18:00:00',1, 500.8);

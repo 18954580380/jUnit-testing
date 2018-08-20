@@ -1,0 +1,9 @@
+spring.datasource.url: jdbc:mysql://192.168.1.174:3306/ssm_demo?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+spring.datasource.username: root
+spring.datasource.password:
+spring.datasource.driverClassName: com.mysql.jdbc.Driver
+
+mybatis.type-aliases-package: tech.imatrix.demo.ssm.domain
+logging.level.tech.imatrix.demo.ssm.dao: DEBUG
+spring.mvc.view.prefix: /WEB-INF/jsp/
+spring.mvc.view.suffix: .jsp

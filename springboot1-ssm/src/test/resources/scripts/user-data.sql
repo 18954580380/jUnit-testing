@@ -1,0 +1,1 @@
+INSERT INTO ssm_user (id, name, loginName, password) VALUES (1, 'admin', 'admin', 'password');

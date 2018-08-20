@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.imatrix.demo.ssm.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="tech.imatrix.demo.ssm.domain.Product">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="category_id" property="categoryId" />
+    <!--<association column="category_id" property="category" javaType="Category" select="tech.imatrix.demo.ssm.dao.CategoryMapper.selectByPrimaryKey" />-->
+    <association property="category" javaType="Category" resultMap="CategoryResultMap"/>
+  </resultMap>
+  <resultMap id="CategoryResultMap" type="Category">
+    <id property="id" column="cid"/>
+    <result property="name" column="cname" />
+    <result property="displayOrder" column="displayOrder" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, name, price, amount, category_id
+  </sql>
+  <select id="listByPage" resultMap="BaseResultMap">
+    SELECT p.id id, p.name name, price, amount, category_id, c.id cid, c.name cname, c.display_order displayOrder
+    FROM ssm_product p LEFT JOIN ssm_category c
+      ON p.category_id=c.id
+  </select>
+</mapper>
